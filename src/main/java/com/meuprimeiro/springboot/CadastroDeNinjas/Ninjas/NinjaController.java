@@ -17,10 +17,10 @@ public class NinjaController {
         this.ninjaService = ninjaService;
     }
 
-    // Adiconar Ninja
+    // Criar Ninja (Create)
     @PostMapping("/cadastrar")
-    public String criarNinja() {
-        return "Ninja cadastrado com sucesso!";
+    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
+        return ninjaService.criarNinja(ninja);
     }
 
     // Listar Todos Ninjas (READ)
