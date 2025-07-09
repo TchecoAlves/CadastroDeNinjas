@@ -1,11 +1,11 @@
 package com.meuprimeiro.springboot.CadastroDeNinjas.Ninjas;
 
+import lombok.Setter;
 import org.hibernate.annotations.NotFound;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
 
 @Service
 public class NinjaService {
@@ -37,5 +37,13 @@ public class NinjaService {
         ninjaRepository.deleteById(id);
     }
 
+    // Atualizar ninja
+    public NinjaModel atualizarNinja(Long id, NinjaModel ninjaAtualizado){
+        if (ninjaRepository.existsById(id)){
+            ninjaAtualizado.setId(id);
+            return ninjaRepository.save(ninjaAtualizado);
+        }
+        return null;
+    }
 
 }
