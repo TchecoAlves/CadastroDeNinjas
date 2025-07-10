@@ -19,6 +19,7 @@ public class NinjaModel {
 
     private String nome;
     private int idade;
+    private String rank;
 
     @Column(unique = true) // Anotação @Column define que o email deve ser único
     private String email;
@@ -27,4 +28,5 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
+
 }
